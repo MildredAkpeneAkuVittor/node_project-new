@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <link rel="stylesheet" href="/table.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Keys</title>
+</head>
+<body>
+    <h1>welcome Admin</h1>
+
+    <a href="/admin/logout" class="btn btn-primary">logout</a>
+
+    <!-- admim logs out the information here -->
+  
+
+   
+
+    <!-- database information -->
+    <div class="table-wrapper">
+    <table class="f1-table">
+        <tr>
+            <th>S/N</th>
+            <th>Access Key</th>
+            <th>Status</th>
+            <th>Start Date</th>
+            <th>ExpiryDate</th>
+
+            <th>Action</th>
+
+            <!-- the information loading from the database -->
+            
+        </tr>
+        <%
+        if(allKeys.length!=0){
+        let i=1;
+        allKeys.forEach(function(key){
+        %>
+        <tr>
+            <td><%=i; %></td>
+            <td><%=key.access_key %></td>
+            <td><%=key.status %></td>
+            <td><%=key.start_date %></td>
+            <td><%=key.expiry_date %></td>
+            <td><a href='/status/edit/<%=key.id%>'>Revoke</a></td>
+            
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+
+
+    
+   
+</body>
+</html>

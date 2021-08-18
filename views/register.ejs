@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <link rel="stylesheet" href="/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+<body> 
+    <div class='login'>
+    <h1>Register</h1>
+
+    <ul>
+      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+      <li><%= error.message %></li>
+      <% }) %> <% } %>
+      </ul>
+    <h1>user signup</h1>
+
+    
+
+    <form action="/users/register" method="POST">
+    <div>
+        <input type="text"
+         id="username" 
+         name="username"
+         placeholder="input name" 
+         required/>
+    </div>
+    <div>
+        <input type="email" 
+        id="useremail"
+        name="useremail" 
+        placeholder="email" 
+        required/>
+    </div>
+    <div>
+        <input 
+        type="text" 
+        id="schoolname" 
+        name="schoolname"
+        placeholder="name of school" 
+        required/>
+    </div>
+
+    <div>
+        <input 
+        type="password"
+         id="userpassword"
+         name="userpassword" 
+         placeholder="password" 
+         required/>
+    </div>
+    <div>
+        <input 
+        type="password" 
+        id="userpassword2" 
+        name="userpassword2"
+        placeholder="confirm password" 
+        required/>
+    </div>
+    <div>
+        <input type="submit" value="register">
+    </div>
+
+       
+</form>
+
+<div>
+    <a href="/users/login" class="btn btn-primary btn-block btn-large">Already registered? login here</a>
+</div>
+    <div>
+    <a href="/admin/adminlogin" class="btn btn-primary btn-block btn-large">Admin? login here</a>
+</div>
+</div>
+</body>
+</html>

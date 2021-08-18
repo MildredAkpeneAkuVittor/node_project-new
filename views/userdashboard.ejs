@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    />
+    <link rel="stylesheet" href="/table.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>hello </h1>
+
+    <a href="/users/logout" class="btn btn-primary ">logout</a>
+<a href="/users/userdashboard" class="btn btn-primary ">back</a>
+    
+    <h2> Request for your code here  </h2>
+
+    
+    
+
+    <form method="post">
+
+        <input type="submit" value="Reguest for code" formaction="/users/userdashboard" class="btn btn-primary ">
+    </form>
+       
+      
+       
+    
+    <div class="table-wrapper">
+    <table class="f1-table">
+        <tr>
+            <th>S/N</th>
+            <th>Access Key</th>
+            <th>Status</th>
+            <th>start date</th>
+            <th>Expiry Date</th>
+            
+            
+        </tr>
+        <%
+        if(allKeys.length!=0){
+        let i=1;
+        allKeys.forEach(function(key){
+        %>
+        <tr>
+            <td><%=i; %></td>
+            <td><%=key.access_key %></td>
+            <td><%=key.status %></td>
+            <td><%=key.start_date %></td>
+            <td><%=key.expiry_date %></td>
+            
+            
+          
+            
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+
+    
+
+
+    
+
+</div>
+
+</body>
+</html>
